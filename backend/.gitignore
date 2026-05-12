@@ -1,0 +1,37 @@
+*.py[cod]
+.*
+!.devcontainer
+!.dockerignore
+!.github
+!.gitignore
+!.vscode
+!.semgrep/
+*.log
+*.pot
+*.pyc
+local_settings.py
+.release_changelog.txt
+.base_ver_release.txt
+__pycache__/
+build/
+coverage/
+dist/
+*\.egg*
+# data
+/media/
+/node_modules/
+/static/
+# Environments
+
+.venv
+env/
+venv/
+
+venv.bak/
+Pipfile
+!.env.example
+!.env.render
+
+# Exported results file
+django-queries-results.html
+!.claude/skills
