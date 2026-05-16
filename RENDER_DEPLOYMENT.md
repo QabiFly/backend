@@ -71,7 +71,7 @@ QabiFly/
    - **Name**: qabifly-backend
    - **Environment**: Python
    - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `gunicorn qabifly.wsgi:application`
+   - **Start Command**: `gunicorn saleor.wsgi:application`
 6. Add Environment Variables:
    - `DATABASE_URL`: Auto-linked from PostgreSQL
    - `REDIS_URL`: Auto-linked from Redis

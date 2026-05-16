@@ -147,7 +147,7 @@ DATABASES = {
     ),
 }
 
-DATABASE_ROUTERS = ["qabifly.core.db_routers.PrimaryReplicaRouter"]
+DATABASE_ROUTERS = ["saleor.core.db_routers.PrimaryReplicaRouter"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
@@ -254,13 +254,13 @@ TEMPLATES = [
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# Additional password algorithms that can be used by QabiFly.
+# Additional password algorithms that can be used by saleor.
 # The first algorithm defined by Django is the preferred one; users not using the
 # first algorithm will automatically be upgraded to it upon login
 PASSWORD_HASHERS = [
     *global_settings.PASSWORD_HASHERS,
     "django.contrib.auth.hashers.BCryptPasswordHasher",
-    "qabifly.core.hashers.SHA512Base64PBKDF2PasswordHasher",
+    "saleor.core.hashers.SHA512Base64PBKDF2PasswordHasher",
 ]
 
 if not SECRET_KEY and DEBUG:
@@ -272,23 +272,23 @@ if not SECRET_KEY and DEBUG:
 RSA_PRIVATE_KEY = os.environ.get("RSA_PRIVATE_KEY", None)
 RSA_PRIVATE_PASSWORD = os.environ.get("RSA_PRIVATE_PASSWORD", None)
 JWT_MANAGER_PATH = os.environ.get(
-    "JWT_MANAGER_PATH", "qabifly.core.jwt_manager.JWTManager"
+    "JWT_MANAGER_PATH", "saleor.core.jwt_manager.JWTManager"
 )
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "qabifly.core.middleware.jwt_refresh_token_middleware",
+    "saleor.core.middleware.jwt_refresh_token_middleware",
 ]
 
 ENABLE_RESTRICT_WRITER_MIDDLEWARE = get_bool_from_env(
     "ENABLE_RESTRICT_WRITER_MIDDLEWARE", False
 )
 if ENABLE_RESTRICT_WRITER_MIDDLEWARE:
-    MIDDLEWARE = ["qabifly.core.db.connection.log_writer_usage_middleware"] + MIDDLEWARE
+    MIDDLEWARE = ["saleor.core.db.connection.log_writer_usage_middleware"] + MIDDLEWARE
 
 # Restrict inexplicit writer DB usage in Celery tasks
-CELERY_RESTRICT_WRITER_METHOD = "qabifly.core.db.connection.log_writer_usage"
+CELERY_RESTRICT_WRITER_METHOD = "saleor.core.db.connection.log_writer_usage"
 
 INSTALLED_APPS = [
     # External apps that need to go before django's
@@ -300,33 +300,33 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "django_celery_beat",
     # Local apps
-    "qabifly.permission",
-    "qabifly.auth",
-    "qabifly.plugins",
-    "qabifly.account",
-    "qabifly.discount",
-    "qabifly.giftcard",
-    "qabifly.product",
-    "qabifly.attribute",
-    "qabifly.channel",
-    "qabifly.checkout",
-    "qabifly.core",
-    "qabifly.csv",
-    "qabifly.graphql",
-    "qabifly.menu",
-    "qabifly.order",
-    "qabifly.invoice",
-    "qabifly.seo",
-    "qabifly.shipping",
-    "qabifly.site",
-    "qabifly.page",
-    "qabifly.payment",
-    "qabifly.tax",
-    "qabifly.warehouse",
-    "qabifly.webhook",
-    "qabifly.app",
-    "qabifly.thumbnail",
-    "qabifly.schedulers",
+    "saleor.permission",
+    "saleor.auth",
+    "saleor.plugins",
+    "saleor.account",
+    "saleor.discount",
+    "saleor.giftcard",
+    "saleor.product",
+    "saleor.attribute",
+    "saleor.channel",
+    "saleor.checkout",
+    "saleor.core",
+    "saleor.csv",
+    "saleor.graphql",
+    "saleor.menu",
+    "saleor.order",
+    "saleor.invoice",
+    "saleor.seo",
+    "saleor.shipping",
+    "saleor.site",
+    "saleor.page",
+    "saleor.payment",
+    "saleor.tax",
+    "saleor.warehouse",
+    "saleor.webhook",
+    "saleor.app",
+    "saleor.thumbnail",
+    "saleor.schedulers",
     # QabiFly Custom Apps
     "khata",
     "wallet",

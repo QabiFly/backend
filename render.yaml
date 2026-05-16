@@ -62,7 +62,7 @@ services:
       - key: GUEST_TOKEN_EXPIRE_HOURS
         value: 24
       - key: DEFAULT_FROM_EMAIL
-        value: noreply@qabifly.in
+        value: noreply@saleor.in
       - key: ENABLE_DEBUG_TOOLBAR
         value: false
       - key: GRAPHQL_PAGINATION_LIMIT
