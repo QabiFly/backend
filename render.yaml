@@ -1,7 +1,7 @@
 services:
   # Backend Service
   - type: web
-    name: qabifly-backend
+    name: saleor-backend
     runtime: python
     plan: free
     buildCommand: "pip install -e . && python manage.py collectstatic --noinput"
@@ -9,26 +9,26 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: qabifly-db
+          name: saleor-db
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: REDIS_URL
         fromService:
           type: redis
-          name: qabifly-redis
+          name: saleor-redis
           property: connectionString
       - key: CELERY_BROKER_URL
         fromService:
           type: redis
-          name: qabifly-redis
+          name: saleor-redis
           property: connectionString
       - key: ALLOWED_HOSTS
-        value: qabifly-backend.onrender.com
+        value: saleor-backend.onrender.com
       - key: DEBUG
         value: false
       - key: PLATFORM_NAME
-        value: QabiFly
+        value: saleor
       - key: PLATFORM_TAGLINE
         value: Apna Gaon, Apna Bazaar
       - key: COMPANY_NAME
@@ -80,14 +80,14 @@ services:
 
   # Dashboard Service
   - type: web
-    name: qabifly-dashboard
+    name: saleor-dashboard
     runtime: node
     plan: free
     buildCommand: "pnpm install && pnpm run build"
     startCommand: "pnpm run start"
     envVars:
       - key: API_URL
-        value: https://qabifly-backend.onrender.com/graphql/
+        value: https://saleor-backend.onrender.com/graphql/
       - key: APP_MOUNT_URI
         value: /dashboard/
       - key: STATIC_URL
@@ -111,33 +111,33 @@ services:
 
   # Storefront Service
   - type: web
-    name: qabifly-storefront
+    name: saleor-storefront
     runtime: node
     plan: free
     buildCommand: "npm install && npm run build"
     startCommand: "npm run start"
     envVars:
       - key: NEXT_PUBLIC_API_URL
-        value: https://qabifly-backend.onrender.com/graphql/
+        value: https://saleor-backend.onrender.com/graphql/
       - key: NEXT_PUBLIC_CHANNEL_SLUG
         value: default-channel
       - key: NEXT_PUBLIC_APP_MOUNT_URI
         value: /dashboard/
       - key: NEXT_PUBLIC_SITE_URL
-        value: https://qabifly-storefront.onrender.com
+        value: https://saleor-storefront.onrender.com
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3000
 
 databases:
-  - name: qabifly-db
-    databaseName: qabifly
-    user: qabifly
+  - name: saleor-db
+    databaseName: saleor
+    user: saleor
     plan: free
 
 services:
   - type: redis
-    name: qabifly-redis
+    name: saleor-redis
     plan: free
     ipAllowList: []

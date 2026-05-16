@@ -74,7 +74,7 @@ class Channel(ModelWithMetadata):
 
     allow_legacy_gift_card_use = models.BooleanField(default=True, db_default=True)
 
-    # QabiFly Shop System Extensions
+    # Saleor Shop System Extensions
     shop_code = models.CharField(
         max_length=20,
         unique=True,

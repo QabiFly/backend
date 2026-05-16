@@ -7,7 +7,7 @@ from django.utils import timezone
 
 
 class GISLandmark(models.Model):
-    """QabiFly GIS Landmarks"""
+    """Saleor GIS Landmarks"""
     
     LANDMARK_TYPES = [
         ('shop', 'Shop'),
@@ -50,7 +50,7 @@ class GISLandmark(models.Model):
 
 
 class WeatherZone(models.Model):
-    """QabiFly Weather Zones"""
+    """Saleor Weather Zones"""
     
     RISK_CHOICES = [
         ('low', 'Low'),

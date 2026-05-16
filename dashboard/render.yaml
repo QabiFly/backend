@@ -1,13 +1,13 @@
 services:
   - type: web
-    name: qabifly-dashboard
+    name: saleor-dashboard
     env: node
     plan: free
     buildCommand: pnpm run build
     startCommand: pnpm run start
     envVars:
       - key: API_URL
-        value: https://qabifly-backend.onrender.com/graphql/
+        value: https://saleor-backend.onrender.com/graphql/
       - key: APP_MOUNT_URI
         value: /
       - key: LOCALE_CODE
@@ -15,6 +15,6 @@ services:
       - key: FF_USE_STAGING_SCHEMA
         value: false
       - key: BASE_URL
-        value: https://qabifly-dashboard.onrender.com/
+        value: https://saleor-dashboard.onrender.com/
       - key: NODE_ENV
         value: production

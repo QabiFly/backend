@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "react-apollo";
-import { myWalletQuery, myTransactionsQuery } from "@next/graphql/qabiflyQueries";
-import { topupWalletMutation, withdrawWalletMutation } from "@next/graphql/qabiflyMutations";
+import { myWalletQuery, myTransactionsQuery } from "@next/graphql/saleorQueries";
+import { topupWalletMutation, withdrawWalletMutation } from "@next/graphql/saleorMutations";
 import { Container, Typography, Box, Button, TextField, CircularProgress, Alert, Card, CardContent, Grid, Tabs, Tab } from "@material-ui/core";
 import styled from "styled-components";
 

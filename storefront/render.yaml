@@ -1,14 +1,14 @@
 services:
   - type: web
-    name: qabifly-storefront
+    name: saleor-storefront
     env: node
     plan: free
     buildCommand: npm run build
     startCommand: npm start
     envVars:
       - key: NEXT_PUBLIC_API_URI
-        value: https://qabifly-backend.onrender.com/graphql/
+        value: https://saleor-backend.onrender.com/graphql/
       - key: NEXT_PUBLIC_API_URL
-        value: https://qabifly-backend.onrender.com/graphql/
+        value: https://saleor-backend.onrender.com/graphql/
       - key: NODE_ENV
         value: production

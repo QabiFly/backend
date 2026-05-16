@@ -1,10 +1,10 @@
-# QabiFly Storefront and Dashboard Setup Guide
+# saleor Storefront and Dashboard Setup Guide
 
-This guide explains how to set up and use the QabiFly storefront and dashboard with the custom backend features including delivery tracking, wallet management, and khata (credit) system.
+This guide explains how to set up and use the saleor storefront and dashboard with the custom backend features including delivery tracking, wallet management, and khata (credit) system.
 
 ## Overview
 
-QabiFly is a custom e-commerce platform built on Saleor with additional features:
+saleor is a custom e-commerce platform built on Saleor with additional features:
 - **Delivery Tracking**: Real-time delivery boy location tracking and assignment management
 - **Wallet System**: Digital wallet for users with top-up, withdrawal, and transfer functionality
 - **Khata (Credit) System**: Traditional credit book system for customers with Sunday collections
@@ -136,7 +136,7 @@ pnpm run build
 pnpm run start
 ```
 
-## QabiFly Features
+## saleor Features
 
 ### Storefront Features
 
@@ -164,7 +164,7 @@ pnpm run start
 ### Dashboard Features
 
 #### 1. Delivery Management
-- **Location**: `/qabifly/delivery`
+- **Location**: `/saleor/delivery`
 - **Features**:
   - View live delivery locations
   - Manage delivery assignments
@@ -172,7 +172,7 @@ pnpm run start
 - **Access**: Admin and staff users
 
 #### 2. Wallet Management
-- **Location**: `/qabifly/wallet`
+- **Location**: `/saleor/wallet`
 - **Features**:
   - View all user wallets
   - Top-up user wallets
@@ -181,7 +181,7 @@ pnpm run start
 - **Access**: Admin and staff users
 
 #### 3. Khata Management
-- **Location**: `/qabifly/khata`
+- **Location**: `/saleor/khata`
 - **Features**:
   - View all udhaar records
   - Create new udhaar entries
@@ -261,8 +261,8 @@ Khata:
 storefront/
 ├── src/
 │   ├── @next/graphql/
-│   │   ├── qabiflyQueries.ts      # QabiFly GraphQL queries
-│   │   └── qabiflyMutations.ts    # QabiFly GraphQL mutations
+│   │   ├── saleorQueries.ts      # saleor GraphQL queries
+│   │   └── saleorMutations.ts    # saleor GraphQL mutations
 │   └── pages/account/
 │       ├── delivery-tracking.tsx  # Delivery tracking page
 │       ├── wallet.tsx             # Wallet management page
@@ -274,9 +274,9 @@ storefront/
 ```
 dashboard/
 ├── src/
-│   └── qabifly/
-│       ├── queries.ts             # QabiFly GraphQL queries
-│       ├── mutations.ts           # QabiFly GraphQL mutations
+│   └── saleor/
+│       ├── queries.ts             # saleor GraphQL queries
+│       ├── mutations.ts           # saleor GraphQL mutations
 │       ├── DeliveryPage.tsx       # Delivery management page
 │       ├── WalletPage.tsx         # Wallet management page
 │       └── KhataPage.tsx          # Khata management page
@@ -302,7 +302,7 @@ backend/
 │   └── graphql/
 │       ├── queries.py            # Khata queries
 │       └── mutations.py          # Khata mutations
-└── qabifly_graphql/
+└── saleor_graphql/
     └── schema.py                 # Combined GraphQL schema
 ```
 

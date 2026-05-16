@@ -14,11 +14,11 @@ from .plugins.views import (
 )
 from .thumbnail.views import handle_original_image, handle_thumbnail
 
-# QabiFly App URLs
+# Saleor App URLs
 from django.urls import include
 
 urlpatterns = [
-    # QabiFly Custom Apps
+    # Saleor Custom Apps
     path('api/khata/', include('khata.urls')),
     path('api/wallet/', include('wallet.urls')),
     path('api/delivery/', include('delivery.urls')),

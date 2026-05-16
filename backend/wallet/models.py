@@ -10,7 +10,7 @@ from saleor.order.models import Order
 
 
 class Wallet(models.Model):
-    """QabiFly Wallet System"""
+    """Saleor Wallet System"""
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     user = models.OneToOneField(

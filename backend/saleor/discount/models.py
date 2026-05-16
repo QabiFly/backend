@@ -126,7 +126,7 @@ class Voucher(ModelWithMetadata):
     collections = models.ManyToManyField("product.Collection", blank=True)
     categcollections = models.ManyToManyField("product.Collection", blank=True)
 
-    # QabiFly Voucher Extensions
+    # Saleor Voucher Extensions
     target_shop = models.ForeignKey(
         Channel,
         on_delete=models.SET_NULL,
@@ -136,7 +136,7 @@ class Voucher(ModelWithMetadata):
     )
     max_uses_per_user = models.PositiveIntegerField(default=1)
     is_first_order_only = models.BooleanField(default=False)
-    is_active_qabifly = models.BooleanField(default=True)
+    is_active_saleor = models.BooleanField(default=True)
 
     objects = VoucherManager()
 

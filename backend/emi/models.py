@@ -10,7 +10,7 @@ from saleor.order.models import Order
 
 
 class EMI(models.Model):
-    """EMI System for QabiFly"""
+    """EMI System for Saleor"""
     
     STATUS_CHOICES = [
         ('active', 'Active'),

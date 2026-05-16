@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
-QabiFly Migration Script
-Run all migrations for the new QabiFly apps
+Saleor Migration Script
+Run all migrations for the new Saleor apps
 """
 
 import os
@@ -27,7 +27,7 @@ def run_command(cmd, description):
 
 def main():
     """Main migration function"""
-    print("🚀 QabiFly Migration Script")
+    print("🚀 Saleor Migration Script")
     print("=" * 50)
     
     # List of all migration commands
@@ -63,7 +63,7 @@ def main():
         
         if success:
             print("\n" + "=" * 50)
-            print("🎉 QabiFly Migration Completed Successfully!")
+            print("🎉 Saleor Migration Completed Successfully!")
             print("📝 All apps have been migrated and are ready for use.")
             print("\n📋 Next Steps:")
             print("1. Run 'python manage.py createsuperuser' to create admin user")

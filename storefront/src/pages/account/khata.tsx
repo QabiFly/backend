@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "react-apollo";
-import { myUdhaarQuery, mySundayCollectionsQuery } from "@next/graphql/qabiflyQueries";
-import { payUdhaarMutation } from "@next/graphql/qabiflyMutations";
+import { myUdhaarQuery, mySundayCollectionsQuery } from "@next/graphql/saleorQueries";
+import { payUdhaarMutation } from "@next/graphql/saleorMutations";
 import { Container, Typography, Box, Button, TextField, CircularProgress, Alert, Card, CardContent, Grid, Tabs, Tab, Chip } from "@material-ui/core";
 import styled from "styled-components";
 

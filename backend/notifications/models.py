@@ -8,7 +8,7 @@ from saleor.account.models import User
 
 
 class Notification(models.Model):
-    """QabiFly Notification System"""
+    """Saleor Notification System"""
     
     NOTIFICATION_TYPES = [
         ('order', 'Order'),

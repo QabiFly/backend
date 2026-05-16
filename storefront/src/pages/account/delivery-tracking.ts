@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "react-apollo";
-import { liveDeliveriesQuery } from "@next/graphql/qabiflyQueries";
+import { liveDeliveriesQuery } from "@next/graphql/saleorQueries";
 import { Container, Typography, Box, CircularProgress, Alert } from "@material-ui/core";
 import styled from "styled-components";
 

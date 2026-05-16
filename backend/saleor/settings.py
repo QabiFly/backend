@@ -136,12 +136,12 @@ else:
 DATABASES = {
     DATABASE_CONNECTION_DEFAULT_NAME: dj_database_url.config(
         env=dj_database_url.DEFAULT_ENV,
-        default="postgresql://zeaipc:hOQu65Jxa3pry3W8mYKZ6T8EGF32HSkx@dpg-d7v0b3pj2pic738ntqk0-a.singapore-postgres.render.com/qabifly",
+        default="postgresql://zeaipc:hOQu65Jxa3pry3W8mYKZ6T8EGF32HSkx@dpg-d7v0b3pj2pic738ntqk0-a.singapore-postgres.render.com/saleor",
         conn_max_age=DB_CONN_MAX_AGE,
     ),
     DATABASE_CONNECTION_REPLICA_NAME: dj_database_url.config(
         env=DATABASE_URL_REPLICA_ENV_NAME,
-        default="postgresql://zeaipc:hOQu65Jxa3pry3W8mYKZ6T8EGF32HSkx@dpg-d7v0b3pj2pic738ntqk0-a.singapore-postgres.render.com/qabifly",
+        default="postgresql://zeaipc:hOQu65Jxa3pry3W8mYKZ6T8EGF32HSkx@dpg-d7v0b3pj2pic738ntqk0-a.singapore-postgres.render.com/saleor",
         conn_max_age=DB_CONN_MAX_AGE,
         test_options={"MIRROR": DATABASE_CONNECTION_DEFAULT_NAME},
     ),
@@ -194,7 +194,7 @@ USER_EMAIL_USE_SSL: bool = user_email_config.get("EMAIL_USE_SSL", False)
 
 ENABLE_SSL: bool = get_bool_from_env("ENABLE_SSL", False)
 
-# URL on which QabiFly is hosted (e.g., https://api.example.com/). This has precedence
+# URL on which Saleor is hosted (e.g., https://api.example.com/). This has precedence
 # over ENABLE_SSL and Shop.domain when generating URLs pointing to itself.
 PUBLIC_URL: str | None = get_url_from_env("PUBLIC_URL", schemes=["http", "https"])
 if PUBLIC_URL:
@@ -327,7 +327,7 @@ INSTALLED_APPS = [
     "saleor.app",
     "saleor.thumbnail",
     "saleor.schedulers",
-    # QabiFly Custom Apps
+    # Saleor Custom Apps
     "khata",
     "wallet",
     "delivery",
@@ -1268,8 +1268,8 @@ patch_execution_context()
 # allowing memory to be freed immediately, without the need of a deep garbage collection cycle.
 patch_execution_result()
 
-# QabiFly Environment Variables
-PLATFORM_NAME = os.environ.get("PLATFORM_NAME", "QabiFly")
+# Saleor Environment Variables
+PLATFORM_NAME = os.environ.get("PLATFORM_NAME", "Saleor")
 PLATFORM_TAGLINE = os.environ.get("PLATFORM_TAGLINE", "Aapki Jarurat Hamari Zimmedaari")
 COMPANY_NAME = os.environ.get("COMPANY_NAME", "ZEAIPC")
 BRAND_NAME = os.environ.get("BRAND_NAME", "QalbConverfy")

@@ -174,7 +174,7 @@ class User(
     # Denormalized number of orders placed by user
     number_of_orders = models.PositiveIntegerField(default=0, db_default=0)
 
-    # QabiFly Custom Fields
+    # Saleor Custom Fields
     phone = models.CharField(max_length=20, blank=True, null=True, unique=True)
     role = models.CharField(
         max_length=20,

@@ -7,7 +7,7 @@ from django.utils import timezone
 
 
 class VideoContent(models.Model):
-    """QabiFly Video Content System"""
+    """Saleor Video Content System"""
     
     CATEGORY_CHOICES = [
         ('farming', 'Farming'),

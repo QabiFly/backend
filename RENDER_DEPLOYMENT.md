@@ -1,18 +1,18 @@
-# QabiFly Render Deployment Guide
+# saleor Render Deployment Guide
 
-This guide explains how to deploy the QabiFly e-commerce platform (backend, storefront, and dashboard) to Render.com.
+This guide explains how to deploy the saleor e-commerce platform (backend, storefront, and dashboard) to Render.com.
 
 ## Prerequisites
 
 - A Render.com account (free tier available)
-- GitHub account with the QabiFly repository
+- GitHub account with the saleor repository
 - AWS S3 bucket for media storage (optional but recommended)
 - PostgreSQL database (provided by Render)
 - Redis instance (provided by Render)
 
 ## Architecture Overview
 
-The QabiFly platform consists of three separate services:
+The saleor platform consists of three separate services:
 
 1. **Backend** (Django/Saleor) - GraphQL API server
 2. **Storefront** (Next.js) - Customer-facing e-commerce application
@@ -25,7 +25,7 @@ The QabiFly platform consists of three separate services:
 Ensure your repository structure is:
 
 ```
-QabiFly/
+saleor/
 ├── backend/
 │   ├── .gitignore
 │   ├── render.yaml
@@ -46,9 +46,9 @@ QabiFly/
 #### 2.1 Create PostgreSQL Database
 
 1. Go to Render Dashboard → New → PostgreSQL
-2. Name: `qabifly-db`
-3. Database: `qabifly`
-4. User: `qabifly_user`
+2. Name: `saleor-db`
+3. Database: `saleor`
+4. User: `saleor_user`
 5. Region: Choose nearest to your users
 6. Plan: Free tier (or paid for production)
 7. Click "Create Database"
@@ -56,7 +56,7 @@ QabiFly/
 #### 2.2 Create Redis Instance
 
 1. Go to Render Dashboard → New → Redis
-2. Name: `qabifly-redis`
+2. Name: `saleor-redis`
 3. Region: Same as database
 4. Plan: Free tier
 5. Click "Create Redis"
@@ -68,7 +68,7 @@ QabiFly/
 3. Select the `backend` directory as root
 4. Render will auto-detect the `render.yaml` file
 5. Review the configuration:
-   - **Name**: qabifly-backend
+   - **Name**: saleor-backend
    - **Environment**: Python
    - **Build Command**: `pip install -r requirements.txt`
    - **Start Command**: `gunicorn saleor.wsgi:application`
@@ -76,7 +76,7 @@ QabiFly/
    - `DATABASE_URL`: Auto-linked from PostgreSQL
    - `REDIS_URL`: Auto-linked from Redis
    - `SECRET_KEY`: Generate a secure random string
-   - `ALLOWED_HOSTS`: `qabifly-backend.onrender.com`
+   - `ALLOWED_HOSTS`: `saleor-backend.onrender.com`
    - `DEBUG`: `false`
    - `DEFAULT_FILE_STORAGE`: `storages.backends.s3boto3.S3Boto3Storage`
    - `AWS_STORAGE_BUCKET_NAME`: Your S3 bucket name
@@ -105,13 +105,13 @@ After deployment, you'll need to run migrations:
 3. Select the `storefront` directory as root
 4. Render will auto-detect the `render.yaml` file
 5. Review the configuration:
-   - **Name**: qabifly-storefront
+   - **Name**: saleor-storefront
    - **Environment**: Node
    - **Build Command**: `npm run build`
    - **Start Command**: `npm start`
 6. Add Environment Variables:
-   - `NEXT_PUBLIC_API_URI`: `https://qabifly-backend.onrender.com/graphql/`
-   - `NEXT_PUBLIC_API_URL`: `https://qabifly-backend.onrender.com/graphql/`
+   - `NEXT_PUBLIC_API_URI`: `https://saleor-backend.onrender.com/graphql/`
+   - `NEXT_PUBLIC_API_URL`: `https://saleor-backend.onrender.com/graphql/`
    - `NODE_ENV`: `production`
 7. Click "Deploy Web Service"
 
@@ -124,16 +124,16 @@ After deployment, you'll need to run migrations:
 3. Select the `dashboard` directory as root
 4. Render will auto-detect the `render.yaml` file
 5. Review the configuration:
-   - **Name**: qabifly-dashboard
+   - **Name**: saleor-dashboard
    - **Environment**: Node
    - **Build Command**: `pnpm run build`
    - **Start Command**: `pnpm run start`
 6. Add Environment Variables:
-   - `API_URL`: `https://qabifly-backend.onrender.com/graphql/`
+   - `API_URL`: `https://saleor-backend.onrender.com/graphql/`
    - `APP_MOUNT_URI`: `/`
    - `LOCALE_CODE`: `"EN"`
    - `FF_USE_STAGING_SCHEMA`: `false`
-   - `BASE_URL`: `https://qabifly-dashboard.onrender.com/`
+   - `BASE_URL`: `https://saleor-dashboard.onrender.com/`
    - `NODE_ENV`: `production`
 7. Click "Deploy Web Service"
 
@@ -178,11 +178,11 @@ After deployment, you'll need to run migrations:
 
 ### 1. Configure Saleor
 
-1. Access dashboard at `https://qabifly-dashboard.onrender.com`
+1. Access dashboard at `https://saleor-dashboard.onrender.com`
 2. Login with superuser account created during migration
 3. Configure channels, payment gateways, shipping methods, tax settings
 
-### 2. Configure QabiFly Features
+### 2. Configure saleor Features
 
 1. Create delivery boys in the system
 2. Set up wallet initial balances
@@ -191,7 +191,7 @@ After deployment, you'll need to run migrations:
 
 ### 3. Test Integration
 
-1. Access storefront at `https://qabifly-storefront.onrender.com`
+1. Access storefront at `https://saleor-storefront.onrender.com`
 2. Test user registration, product browsing, checkout
 3. Test delivery tracking, wallet operations, khata/credit system
 

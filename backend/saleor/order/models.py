@@ -32,7 +32,7 @@ from ..payment.models import Payment
 
 
 class OrderPaymentSplit(models.Model):
-    """QabiFly Order Payment Split System"""
+    """Saleor Order Payment Split System"""
     
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     order = models.OneToOneField(
@@ -408,7 +408,7 @@ class Order(ModelWithMetadata, ModelWithExternalReference):
         max_length=TAX_ERROR_FIELD_LENGTH, null=True, blank=True
     )
 
-    # QabiFly Order Extensions
+    # Saleor Order Extensions
     delivery_charge = models.DecimalField(
         max_digits=10, 
         decimal_places=2,

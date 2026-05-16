@@ -1,4 +1,4 @@
-# QabiFly - Saleor E-commerce Platform
+# saleor - Saleor E-commerce Platform
 
 A modular, high performance, headless e-commerce platform built with Django, GraphQL, React, and Next.js.
 
@@ -107,11 +107,11 @@ After running `populatedb`:
 - Email: `admin@example.com`
 - Password: `admin`
 
-## QabiFly Configuration
+## saleor Configuration
 
 The platform is pre-configured for rural Indian markets:
 
-- **Platform Name**: QabiFly
+- **Platform Name**: saleor
 - **Tagline**: Apna Gaon, Apna Bazaar
 - **Location**: Reoti, Ballia, Uttar Pradesh
 - **Delivery Radius**: 2.0 km

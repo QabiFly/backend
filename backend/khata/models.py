@@ -11,7 +11,7 @@ from saleor.order.models import Order
 
 
 class Udhaar(models.Model):
-    """Digital Khata (Credit) System for QabiFly"""
+    """Digital Khata (Credit) System for Saleor"""
     
     STATUS_CHOICES = [
         ('pending', 'Pending'),

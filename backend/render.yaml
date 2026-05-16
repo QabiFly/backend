@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: qabifly-backend
+    name: saleor-backend
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
@@ -8,23 +8,23 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: qabifly-db
+          name: saleor-db
           property: connectionString
       - key: REDIS_URL
         fromService:
           type: redis
-          name: qabifly-redis
+          name: saleor-redis
           property: connectionString
       - key: SECRET_KEY
         generateValue: true
       - key: ALLOWED_HOSTS
-        value: qabifly-backend.onrender.com
+        value: saleor-backend.onrender.com
       - key: DEBUG
         value: false
       - key: DEFAULT_FILE_STORAGE
         value: storages.backends.s3boto3.S3Boto3Storage
       - key: AWS_STORAGE_BUCKET_NAME
-        value: qabifly-media
+        value: saleor-media
       - key: AWS_S3_REGION_NAME
         value: us-east-1
       - key: AWS_ACCESS_KEY_ID
@@ -32,14 +32,14 @@ services:
       - key: AWS_SECRET_ACCESS_KEY
         sync: false
       - key: AWS_S3_CUSTOM_DOMAIN
-        value: qabifly-media.s3.amazonaws.com
+        value: saleor-media.s3.amazonaws.com
 
 databases:
-  - name: qabifly-db
-    databaseName: qabifly
-    user: qabifly_user
+  - name: saleor-db
+    databaseName: saleor
+    user: saleor_user
 
 services:
   - type: redis
-    name: qabifly-redis
+    name: saleor-redis
     plan: free

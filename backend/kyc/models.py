@@ -9,7 +9,7 @@ from saleor.account.models import User
 
 
 class KYC(models.Model):
-    """QabiFly KYC System"""
+    """Saleor KYC System"""
     
     STATUS_CHOICES = [
         ('pending', 'Pending'),
